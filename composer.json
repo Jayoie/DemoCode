@@ -34,11 +34,14 @@
 			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
-			"php -r \"copy('.env.example', '.env');\"",
-			"php artisan key:generate"
+			"php -r \"copy('.env.example', '.env');\""
 		]
 	},
 	"config": {
 		"preferred-install": "dist"
-	}
+	},
+    "repositories": [
+        {"type": "composer", "url": "https://packagist.phpcomposer.com"},
+        {"packagist": false}
+    ]
 }
