@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Page;
 
-class AdminHomeComtroller extends Controller {
+class AdminHomeController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
