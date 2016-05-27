@@ -7,6 +7,7 @@
   <title>Learn Laravel 5</title>
 
   <link href="/css/app.css" rel="stylesheet">
+  <link href="/assets/css/amazeui.min.css" rel="stylesheet">
 
   <!-- Fonts -->
   <link href='http://fonts.useso.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -19,7 +20,7 @@
       ©2015 <a href="http://lvwenhan.com">JohnLui</a>
     </div>
   </div>
-
-
+  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+  @yield('js')
 </body>
 </html>
