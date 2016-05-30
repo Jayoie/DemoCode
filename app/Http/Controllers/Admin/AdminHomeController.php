@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Page;
 
-class AdminHomeComtroller extends Controller {
+class AdminHomeController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,7 +16,7 @@ class AdminHomeComtroller extends Controller {
 	 */
 	public function index()
 	{
-		return view('AdminHome')->withPages(Page::all());
+		return view('AdminHome')->withPages(Page::paginate(5));
 	}
 
 	/**
