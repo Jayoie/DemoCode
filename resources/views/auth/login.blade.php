@@ -6,8 +6,8 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading ">管理员登陆</div>
-				<div class="panel-body">
+				<div class="panel-heading " >登陆</div>
+				<div class="panel-body" >
 					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 

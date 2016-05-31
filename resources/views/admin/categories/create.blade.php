@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">新增广告</div>
+                    <div class="panel-heading">新增栏目</div>
 
                     <div class="panel-body">
 
@@ -20,10 +20,10 @@
                             </div>
                         @endif
 
-                        <form action="{{ URL('admin/ads') }}" method="POST">
+                        <form action="{{ URL('admin/categories') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            广告标题: <input type="text" name="title" class="form-control" required="required">
+                            栏目名: <input type="text" name="name" class="form-control" required="required">
                             <br>
                             缩略图:
                             <button class="btn btn-sm btn-success" type="button" id="loading">
@@ -36,8 +36,6 @@
                             <img src="" id="img_show" style="max-height: 150px;">
                             <br>
                             <hr>
-                            URL: <input type="text" name="url" class="form-control" required="required">
-                            <br>
                             描述:
                             <textarea name="desc" rows="5" class="form-control" required="required"></textarea>
                             <br>

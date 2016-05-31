@@ -5,18 +5,16 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Page;
-
-class AdminHomeController extends Controller {
+class ArticleController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * 专辑首页
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return view('AdminHome')->withPages(Page::paginate(config('jay_zhou.page_size')));
+		//
 	}
 
 	/**

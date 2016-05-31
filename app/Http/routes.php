@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('pages', 'PagesController@index');
 Route::get('pages/{id}', 'PagesController@show');
 Route::post('comment/store', 'CommentsController@store');
 
@@ -25,7 +26,9 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
   Route::get('/', 'AdminHomeController@index');
+  Route::any('upload','UploadController@upload');
   Route::resource('pages', 'PagesController');
   Route::resource('comments', 'CommentsController');
   Route::resource('ads', 'AdsController');
+  Route::resource('categories', 'CategoriesController');
 });

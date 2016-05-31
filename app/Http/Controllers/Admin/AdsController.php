@@ -33,31 +33,21 @@ class AdsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		Ad::create($request->all());
+		return redirect(route('admin.ads.index'));
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
+	 * 编辑广告.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		//
+		return view('admin.ads.edit')->withAd(Ad::find($id));
 	}
 
 	/**
@@ -66,20 +56,23 @@ class AdsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
+		$ad=Ad::find($id);
+		$ad->update($request->all());
+		return redirect(route('admin.ads.index'));
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * 删除广告.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		//
+		Ad::destroy($id);
+		return back();
 	}
 
 }

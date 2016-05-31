@@ -20,26 +20,25 @@
                             </div>
                         @endif
 
-                        <form action="{{ URL('admin/ads') }}" method="POST">
+                        <form action="{{ URL('admin/categories/'.$category->id) }}" method="POST">
+                            <input name="_method" type="hidden" value="PUT">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            广告标题: <input type="text" name="title" class="form-control" required="required">
+                            栏目名: <input type="text" name="name" class="form-control" required="required" value="{{$category->name}}" >
                             <br>
                             缩略图:
                             <button class="btn btn-sm btn-success" type="button" id="loading">
                                 <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp;选择要上传的图片
                             </button>
                             <input type="file" id="thumb_upload" style="opacity: 0;">
-                            <input type="hidden" name="thumb">
+                            <input type="hidden" name="thumb" value="{{$category->thumb}}" >
                             <br>
                             图片预览：
-                            <img src="" id="img_show" style="max-height: 150px;">
+                            <img src="{{$category->thumb}}" id="img_show" style="max-height: 150px;">
                             <br>
                             <hr>
-                            URL: <input type="text" name="url" class="form-control" required="required">
-                            <br>
                             描述:
-                            <textarea name="desc" rows="5" class="form-control" required="required"></textarea>
+                            <textarea name="desc" rows="5" class="form-control" required="required">{{$category->desc}}</textarea>
                             <br>
                             <button class="btn btn-lg btn-info">提交</button>
                         </form>

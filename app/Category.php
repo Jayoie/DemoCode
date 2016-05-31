@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model {
+class Category extends Model {
 
 	protected $guarded=[];
 

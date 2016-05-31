@@ -26,7 +26,7 @@
         }
     </style>
 </head>
-<body id="app-layout">
+<body id="app-layout" style="background-image:url(/images/slide_2.jpg)">
 <div class="header" style="text-align: center;height: 150px">
     <h1>Jay.zhou中文网</h1>
     <hr/>

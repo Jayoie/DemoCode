@@ -2,31 +2,30 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Category;
 
 use Illuminate\Http\Request;
 
-use App\Page;
-
-class AdminHomeController extends Controller {
+class CategoriesController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * 栏目首页
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return view('AdminHome')->withPages(Page::paginate(config('jay_zhou.page_size')));
+		return view('admin.categories.index')->withCategories(Category::all());
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * 新增栏目
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		//
+		return view('admin.categories.create');
 	}
 
 	/**
@@ -34,31 +33,21 @@ class AdminHomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		Category::create($request->all());
+		return redirect(route('admin.categories.index'));
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
+	 * 编辑栏目.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		//
+		return view('admin.categories.edit')->withCategory(Category::find($id));
 	}
 
 	/**
@@ -67,9 +56,11 @@ class AdminHomeController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		//
+		$category=Category::find($id);
+		$category->update($request->all());
+		return view('admin.categories.index');
 	}
 
 	/**
@@ -80,7 +71,8 @@ class AdminHomeController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Category::destroy($id);
+		return back();
 	}
 
 }
